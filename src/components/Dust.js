@@ -58,7 +58,7 @@ const Weather = () => {
   }, [params]);
   const callApi = async () => {
     const resp = await axios.get(
-      `https://cors-anywhere.herokuapp.com/http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?${new URLSearchParams(
+      `/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?${new URLSearchParams(
         params
       ).toString()}`
     );
