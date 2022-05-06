@@ -67,11 +67,17 @@ const Span = styled.span`
 `;
 
 const Grade = {
+  title: {
+    1: "좋음",
+    2: "보통",
+    3: "나쁨",
+    4: "매우나쁨",
+  },
   text: {
-    1: ["좋음", "산책가기 좋아요!"],
-    2: ["보통", "산책가기 나쁘지 않아요!"],
-    3: ["나쁨", "산책가야 되는데..."],
-    4: ["매우나쁨", "..."],
+    1: "산책가기 좋아요!",
+    2: "산책가기 나쁘지 않아요!",
+    3: "산책가야 되는데...",
+    4: "...",
   },
   image: {
     1: good,
@@ -91,9 +97,9 @@ const Contents = ({ data }) => {
           height="280px"
           animation
         />
-        <Span size="35">{Grade.text[data.pm25Grade][0]}</Span>
+        <Span size="35">{Grade.title[data.pm25Grade]}</Span>
         <Span size="25" bgcolor="#fdff8c">
-          {Grade.text[data.pm25Grade][1]}
+          {Grade.text[data.pm25Grade]}
         </Span>
       </Main>
       <Detail>
@@ -104,7 +110,7 @@ const Contents = ({ data }) => {
             width="180px"
             height="180px"
           />
-          <Span>{Grade.text[data.pm10Grade][0]}</Span>
+          <Span>{Grade.title[data.pm10Grade]}</Span>
           <Span>{data.pm10Value}㎍/㎥</Span>
         </DetailItem>
         <DetailItem>
@@ -114,7 +120,7 @@ const Contents = ({ data }) => {
             width="180px"
             height="180px"
           />
-          <Span>{Grade.text[data.pm25Grade][0]}</Span>
+          <Span>{Grade.title[data.pm25Grade]}</Span>
           <Span>{data.pm25Value}㎍/㎥</Span>
         </DetailItem>
         <DetailItem>
@@ -124,7 +130,7 @@ const Contents = ({ data }) => {
             width="180px"
             height="180px"
           />
-          <Span>{Grade.text[data.no2Grade][0]}</Span>
+          <Span>{Grade.title[data.no2Grade]}</Span>
           <Span>{data.no2Value}ppm</Span>
         </DetailItem>
       </Detail>
