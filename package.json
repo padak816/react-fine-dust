@@ -16,7 +16,10 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "upload": "aws s3 sync ./build s3://padak-find-dust --profile=dev",
+    "invalidate": "aws cloudfront create-invalidation --profile=dev --distribution-id EK22WY6N2AFNK --paths / /index.html /service-worker.js /manifest.json",
+    "deploy": "npm run build && npm run upload && npm run invalidate"
   },
   "eslintConfig": {
     "extends": [
