@@ -23,14 +23,18 @@ jobs:
         
     - name: npm install
       run: npm install
+      
     - name: build
       run: npm run build
+      
+    - name: deploy
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_IAM_MANAGER_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
+        aws-region: ap-northeast-2
     - name: upload to S3
-      run: npm run upload
-      env:
-        AWS_S3_BUCKET: padak-find-dust
-        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_IAM_MANAGER_KEY_ID }}
-        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_IAM_MANAGER_SECRET_ACCESS_KEY }}
-        AWS_REGION: ap-northeast-2
+      run: aws s3 sync ./build s3://padak-find-dust
+      
     - name: invalidate
-      run: npm run invalidate
+      run: aws cloudfront create-invalidation --distribution-id EK22WY6N2AFNK --paths / /index.html /service-worker.js /manifest.json
