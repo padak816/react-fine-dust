@@ -1,9 +1,9 @@
-import React from "react";
-import styled, { css, keyframes } from "styled-components";
-import good from "../images/1.jpg";
-import soso from "../images/2.jpg";
-import bad from "../images/3.jpg";
-import worst from "../images/4.jpg";
+import React from 'react';
+import styled, { css, keyframes } from 'styled-components';
+import good from '../images/1.jpg';
+import soso from '../images/2.jpg';
+import bad from '../images/3.jpg';
+import worst from '../images/4.jpg';
 
 const boxFade = keyframes`
   0% {
@@ -21,7 +21,7 @@ const Main = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px 100px;
+  padding: 20px 50px;
 `;
 
 const Detail = styled.div`
@@ -36,8 +36,9 @@ const DetailItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 100px;
+  padding: 0 10px;
   row-gap: 10px;
+  height: 100%;
 `;
 
 const Image = styled.img`
@@ -68,16 +69,16 @@ const Span = styled.span`
 
 const Grade = {
   title: {
-    1: "좋음",
-    2: "보통",
-    3: "나쁨",
-    4: "매우나쁨",
+    1: '좋음',
+    2: '보통',
+    3: '나쁨',
+    4: '매우나쁨',
   },
   text: {
-    1: "산책가기 좋아요!",
-    2: "산책가기 나쁘지 않아요!",
-    3: "산책가야 되는데...",
-    4: "...",
+    1: '산책가기 좋아요!',
+    2: '산책가기 나쁘지 않아요!',
+    3: '산책가야 되는데...',
+    4: '...',
   },
   image: {
     1: good,

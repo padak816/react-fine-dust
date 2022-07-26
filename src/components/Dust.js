@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import SearchForm from "./SearchForm";
-import styled from "styled-components";
-import Contents from "./Contents";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import SearchForm from './SearchForm';
+import styled from 'styled-components';
+import Contents from './Contents';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
-  width: 1200px;
-  height: 900px;
+  row-gap: 15px;
+  width: 900px;
+  height: 800px;
   padding: 30px;
   border: 3px solid #dee2ec;
 `;
@@ -42,12 +42,12 @@ const Body = styled.div`
 
 const defaultParams = {
   serviceKey: process.env.REACT_APP_API_KEY,
-  returnType: "json",
-  numOfRows: "100",
+  returnType: 'json',
+  numOfRows: '100',
   pageNo: 1,
-  dataTerm: "DAILY",
-  stationName: "도봉구",
-  ver: "1.0",
+  dataTerm: 'DAILY',
+  stationName: '노원구',
+  ver: '1.0',
 };
 
 const Weather = () => {
@@ -58,7 +58,7 @@ const Weather = () => {
   }, [params]);
   const callApi = async () => {
     const resp = await axios.get(
-      `/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?${new URLSearchParams(
+      `http://apis.data.go.kr/B552584/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?${new URLSearchParams(
         params
       ).toString()}`
     );
