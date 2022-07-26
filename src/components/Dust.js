@@ -55,6 +55,7 @@ const Weather = () => {
   const [params, setParams] = useState(defaultParams);
   useEffect(() => {
     callApi();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
   const callApi = async () => {
     const resp = await axios.get(
